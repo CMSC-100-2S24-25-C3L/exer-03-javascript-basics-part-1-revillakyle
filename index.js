@@ -34,7 +34,7 @@ function validatePassword(key, password){
     }
 
 
-
+    //if statement
     if(key===password && password.length>7 && digit && uppercase && lowercase){
         return true
     }
@@ -48,21 +48,36 @@ function validatePassword(key, password){
 function reverseString(password){
 
     let reversedCharArr=[];
-
+    //push string characters starting from rightmost index to array
     for(let i=password.length-1;i>=0;i--){
         let dump=password.charAt(i);
         reversedCharArr.push(dump);
     }
-
+    //use join method to join characters in the array
     let reversedString=reversedCharArr.join("");
 
     return reversedString
 }
 
 
+function storePassword(name,password1,password2){
+
+    let newPassword=password1;
+    //if both passwords are valid, set newPassword to be the reversed string of password2
+    if(validatePassword(password1,password2)){
+        newPassword=reverseString(password2);
+    }
+    //if not, return password1
+
+    let passwordObject={
+        name: name,
+        newPassword: newPassword
+    }
+
+    return passwordObject;
 
 
+}
 
-let validate = validatePassword("HELLOWORLD123","HELLOWORLD123");
-console.log(validate);
-console.log(reverseString("Hello World!"));
+
+console.log(storePassword("Kyle","HELLOWORLDo123","HELLOWORLDo123"));
