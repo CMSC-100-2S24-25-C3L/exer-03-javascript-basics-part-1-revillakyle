@@ -45,5 +45,24 @@ function validatePassword(key, password){
 }
 
 
-let validation = validatePassword("HELLOWORLD123","HELLOWORLD123");
-console.log(validation)
+function reverseString(password){
+
+    let reversedCharArr=[];
+
+    for(let i=password.length-1;i>=0;i--){
+        let dump=password.charAt(i);
+        reversedCharArr.push(dump);
+    }
+
+    let reversedString=reversedCharArr.join("");
+
+    return reversedString
+}
+
+
+
+
+
+let validate = validatePassword("HELLOWORLD123","HELLOWORLD123");
+console.log(validate);
+console.log(reverseString("Hello World!"));
